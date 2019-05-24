@@ -27,18 +27,21 @@ public class CadastroServlet extends HttpServlet  {
         usuario.setPais(req.getParameter("pais"));
         usuario.setPrimeiroNome(req.getParameter("primeiroNome"));
         usuario.setUltimoNome(req.getParameter("ultimoNome"));
-        usuario.setId(1l);
         usuario.setTelefone(req.getParameter("telefone"));
         usuario.setSenha(req.getParameter("senha"));
 
         try {
             usuarioDAO.criarUsuario(usuario);
-            resp.setHeader("Content-type", "text/html");
+            /*resp.setHeader("Content-type", "text/html");
             resp.getOutputStream().println("<h1>Usuário cadastrado com sucesso!");
+             */
+            req.setAttribute("cadastro", usuarioDAO.listarUsuarios());
+            req.getRequestDispatcher("cadastro.jsp").forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
             resp.sendError(400);
         }
+
 
 
     }
