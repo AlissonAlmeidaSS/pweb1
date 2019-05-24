@@ -17,12 +17,12 @@
     <th>Senha</th>
     </thead>
     <tbody>
-    <c:forEach items="${cadastrar}" var="cadast">
+    <c:forEach items="${cadastro}" var="cadast">
         <tr>
             <td>${cadast.primeiroNome}</td>
             <td>${cadast.ultimoNome}</td>
             <td>${cadast.cidade}</td>
-            <td>${cadast.nascimento}</td>
+            <td>${cadast.dataNascimento}</td>
             <td>${cadast.email}</td>
             <td>${cadast.pais}</td>
             <td>${cadast.cidade}</td>
